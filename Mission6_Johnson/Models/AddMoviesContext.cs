@@ -10,5 +10,6 @@ namespace Mission6_Johnson.Models
         {
         }
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<Categories> Categories { get; set; }
     }
 }

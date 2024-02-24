@@ -5,24 +5,29 @@ namespace Mission6_Johnson.Models
 {
     public class Movie
     {
+        //required fields: title, year, edited, copiedtoplex
         [Key]
         [Required]
-        public int Id { get; set; }
+        public int MovieId { get; set; }
+        public int CategoryId { get; set; }
         [Required]
-        public string Category { get; set; }
+        public Category? Category{ get; set; }
         [Required]
         public string Title { get; set; }
         [Required]
+        //prevent unrealistic years
+        [Range(1888, int.MaxValue, ErrorMessage = "The year must be 1888 or later")]
         public int Year { get; set; }
-        [Required]
-        public string Director { get; set; }
-        [Required]
-        public string Rating { get; set; }
+    
+        public string? Director { get; set; }
+      
+        public string? Rating { get; set; }
         [Required]
         public bool Edited { get; set; }
-        [AllowNull]
-        public string? Notes { get; set; }
-        [AllowNull]
         public string? LentTo { get; set; }
+        [Required]
+        public bool CopiedToPlex { get; set; }
+        public string? Notes { get; set; }
+ 
     }
 }
