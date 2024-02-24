@@ -42,7 +42,9 @@ namespace Mission6_Johnson.Controllers
             }
             else //when something is invalid
             {
-                ViewBag.Categories = _context.Categories.OrderBy(x => x.CategoryName).ToList();
+                ViewBag.Categories = _context.Categories
+                    .OrderBy(x => x.CategoryName)
+                    .ToList();
                 return View(response);
             }
 
@@ -51,7 +53,9 @@ namespace Mission6_Johnson.Controllers
         public IActionResult ViewMovie()
         {
             //Linq
-            var movies = _context.Movies.Include("Category").ToList();
+            var movies = _context.Movies.Include("Category")
+                .OrderBy(x => x.Title)
+                .ToList();
             return View(movies);
         }
 
@@ -59,7 +63,8 @@ namespace Mission6_Johnson.Controllers
 
         public IActionResult Edit(int id)
         {
-            var editMovie = _context.Movies.Single(x => x.MovieId == id);
+            var editMovie = _context.Movies
+                .Single(x => x.MovieId == id);
             ViewBag.Categories = _context.Categories.OrderBy(x => x.CategoryName).ToList();
             return View("AddMovies", editMovie);
         }

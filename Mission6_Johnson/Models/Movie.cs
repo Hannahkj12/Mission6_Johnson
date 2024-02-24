@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Mission6_Johnson.Models
@@ -9,7 +10,10 @@ namespace Mission6_Johnson.Models
         [Key]
         [Required]
         public int MovieId { get; set; }
-        public int CategoryId { get; set; }
+
+        //set foreign key relationship
+        [ForeignKey("CategoryId")]
+        public int? CategoryId { get; set; }
         [Required]
         public Category? Category{ get; set; }
         [Required]

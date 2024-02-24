@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 namespace Mission6_Johnson.Models
 {
-    public class Categories
+    public class Category
     {
         [Key]
         public int CategoryId { get; set; }
